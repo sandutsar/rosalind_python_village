@@ -11,10 +11,10 @@ class StringIsOutOfRange(Exception):
 path = os.path.join(os.getcwd(), \
                     os.path.basename(__file__).split('.')[0])
 
-def ini6(line, save=False):
+def ini6(s, save=False):
     result = {}
     
-    words = line.split()
+    words = s.split()
     for word in words:
         if word not in result.keys():
             result[word] = 1
@@ -30,11 +30,11 @@ def ini6(line, save=False):
 
 if __name__ == '__main__':
     with open(os.path.join(path, 'rosalind_ini6_1_dataset.txt'), 'r') as file:
-        line = file.readline()
+        s = file.readline()
 
-    # assert len(line) <= 1e4, f'Error: len(line) = {len(line)} must be less than 10000!'
+    # assert len(s) <= 1e4, f'Error: len(s) = {len(s)} must be less than 10000!'
 
-    if len(line) > 1e4:
-        raise StringIsOutOfRange(line)
+    if len(s) > 1e4:
+        raise StringIsOutOfRange(s)
     
-    print(ini6(line, save=True))
+    print(ini6(s, save=True))
