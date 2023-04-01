@@ -14,8 +14,12 @@ $\textcolor{green}{\textsf{Return:}}$ The integer corresponding to the square of
 
 **Sample Dataset**
 
-`3 5`
+```
+3 5
+```
 
 **Sample Output**
 
-`34`
+```
+34
+```
