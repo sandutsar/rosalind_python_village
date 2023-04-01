@@ -6,7 +6,7 @@
 
 $\textcolor{green}{\textsf{Given:}}$ Two positive integers ***a*** and ***b***, each less than 1000.
 
-$\textcolor{green}{\textsf{Return:}}$ The integer corresponding to the square of the hypotenuse of the right triangle whose legs have lengths a and b.
+$\textcolor{green}{\textsf{Return:}}$ The integer corresponding to the square of the hypotenuse of the right triangle whose legs have lengths ***a*** and ***b***.
 
 **Notes:**
 1. The dataset changes every time you click "Download dataset".
