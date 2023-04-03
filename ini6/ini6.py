@@ -1,6 +1,7 @@
 import os
 
-class _StringIsOutOfRange(Exception):
+
+class _StringOverflowError(Exception):
     def __init__(self, string, message=None):
         if message is None:
             message = 'Error: len(' + [name for name in globals() \
@@ -8,13 +9,14 @@ class _StringIsOutOfRange(Exception):
                 + ') = ' + str(len(string)) + ' must be at most 10000!'
         super().__init__(message)
 
+
 def ini6(s, path=None, save=False):
     result = {}
 
     # assert len(s) <= 1e4, f'Error: len(s) = {len(s)} must be at most 10000!'
 
     if len(s) > 1e4:
-        raise _StringIsOutOfRange(s)
+        raise _StringOverflowError(s)
     
     words = s.split()
     for word in words:
@@ -34,6 +36,7 @@ def ini6(s, path=None, save=False):
                 file.write(f'{key} {value}\n')
 
     return result
+
 
 if __name__ == '__main__':
     with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), \

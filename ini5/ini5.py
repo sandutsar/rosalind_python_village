@@ -1,6 +1,7 @@
 import os
 
-class _LinesIsOutOfRange(Exception):
+
+class _LinesOverflowError(Exception):
     def __init__(self, lines, message=None):
         if message is None:
             message = 'Error: len(' + [name for name in globals() \
@@ -8,13 +9,14 @@ class _LinesIsOutOfRange(Exception):
                 + ') = ' + str(len(lines)) + ' must be at most 1000!'
         super().__init__(message)
 
+
 def ini5(lines, path=None, save=False):
     result = []
 
     # assert len(lines) <= 1e3, f'Error: len(lines) = {len(lines)} must be at most 1000!'
 
     if len(lines) > 1e3:
-        raise _LinesIsOutOfRange(lines)
+        raise _LinesOverflowError(lines)
 
     for i in range(len(lines)):
         if i % 2 != 0:
@@ -30,6 +32,7 @@ def ini5(lines, path=None, save=False):
             file.writelines(result)
 
     return result
+
 
 if __name__ == '__main__':
     with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), \
