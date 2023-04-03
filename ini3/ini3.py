@@ -9,12 +9,12 @@ class _StringIsOutOfRange(Exception):
         super().__init__(message)
 
 def ini3(s, a, b, c, d, path=None, save=False):
-    result = (s[a:b+1], s[c:d+1])
-
     # assert len(s) <= 2e2, f'Error: len(s) = {len(s)} must be at most 200!'
 
     if len(s) > 2e2:
         raise _StringIsOutOfRange(s)
+    
+    result = (s[a:b+1], s[c:d+1])
 
     if save:
         if path is None:
@@ -23,7 +23,7 @@ def ini3(s, a, b, c, d, path=None, save=False):
         else:
             path = os.path.join(path, 'rosalind_ini3_1_output.txt')
         with open(path, 'w') as file:
-            file.write(f'{result[0]} {result[1]}')
+            file.write(' '.join(result))
 
     return result
 

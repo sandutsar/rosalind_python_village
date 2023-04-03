@@ -9,8 +9,6 @@ class _NumberIsOutOfRange(Exception):
         super().__init__(message)
 
 def ini2(a, b, path=None, save=False):
-    result = a*a + b*b
-
     # assert a < 1e3, f'Error: a = {a} must be less than 1000!'
     # assert b < 1e3, f'Error: b = {b} must be less than 1000!'
     
@@ -18,6 +16,8 @@ def ini2(a, b, path=None, save=False):
         raise _NumberIsOutOfRange(a)
     if b >= 1e3:
         raise _NumberIsOutOfRange(b)
+    
+    result = a*a + b*b
 
     if save:
         if path is None:
