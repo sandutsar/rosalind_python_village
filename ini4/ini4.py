@@ -3,7 +3,6 @@ sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), \
                              os.pardir))
 from exceptions import NumberValueError
 
-
 def ini4(a, b, path=None, save=False):
     result = 0
 
@@ -41,7 +40,7 @@ def ini4(a, b, path=None, save=False):
         if path is None:
             path = os.path.join(os.path.dirname(os.path.realpath(__file__)), \
                                 'rosalind_ini4_1_output.txt')
-        else:
+        elif os.path.isdir(path):
             path = os.path.join(path, 'rosalind_ini4_1_output.txt')
         with open(path, 'w') as file:
             file.write(str(result))

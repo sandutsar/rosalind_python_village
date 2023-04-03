@@ -20,7 +20,7 @@ def ini5(lines, path=None, save=False):
         if path is None:
             path = os.path.join(os.path.dirname(os.path.realpath(__file__)), \
                                 'rosalind_ini5_1_output.txt')
-        else:
+        elif os.path.isdir(path):
             path = os.path.join(path, 'rosalind_ini5_1_output.txt')
         with open(path,  'w') as file:
             file.writelines(result)
