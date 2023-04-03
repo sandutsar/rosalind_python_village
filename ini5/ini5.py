@@ -22,7 +22,7 @@ def ini5(lines, path=None, save=False):
 
     if save:
         if path is None:
-            path = os.path.join(os.getcwd(), os.path.basename(__file__).split('.')[0], \
+            path = os.path.join(os.path.dirname(os.path.realpath(__file__)), \
                                 'rosalind_ini5_1_output.txt')
         else:
             path = os.path.join(path, 'rosalind_ini5_1_output.txt')
@@ -32,7 +32,7 @@ def ini5(lines, path=None, save=False):
     return result
 
 if __name__ == '__main__':
-    with open(os.path.join(os.getcwd(), os.path.basename(__file__).split('.')[0], \
+    with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), \
                            'rosalind_ini5_1_dataset.txt'), 'r') as file:
         lines = file.readlines()
 
