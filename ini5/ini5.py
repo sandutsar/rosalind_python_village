@@ -1,5 +1,9 @@
-import os
+import os, sys
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), \
+                             os.pardir))
+from exceptions import IterableLengthError
 
+<<<<<<< Updated upstream
 
 class _LinesOverflowError(Exception):
     def __init__(self, lines, message=None):
@@ -8,15 +12,21 @@ class _LinesOverflowError(Exception):
                                             if globals()[name] == lines][0] \
                 + ') = ' + str(len(lines)) + ' must be at most 1000!'
         super().__init__(message)
+=======
+>>>>>>> Stashed changes
 
 
 def ini5(lines, path=None, save=False):
     result = []
 
-    # assert len(lines) <= 1e3, f'Error: len(lines) = {len(lines)} must be at most 1000!'
+    # assert len(lines) <= 1e3, f'Error: len(lines) = {len(lines)} must be <= 1000!'
 
     if len(lines) > 1e3:
+<<<<<<< Updated upstream
         raise _LinesOverflowError(lines)
+=======
+        raise IterableLengthError(iterable=lines, sign='<=', value=int(1e3))
+>>>>>>> Stashed changes
 
     for i in range(len(lines)):
         if i % 2 != 0:
