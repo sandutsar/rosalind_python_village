@@ -4,7 +4,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), \
 from exceptions import IterableLengthError
 
 
-def ini5(lines, path=None, save=False):
+def ini5(lines, save=False, path=None, filename='rosalind_ini5_1_output', ext='txt'):
     result = []
 
     # assert len(lines) <= 1e3, f'Error: len(lines) = {len(lines)} must be <= 1000!'
@@ -19,9 +19,9 @@ def ini5(lines, path=None, save=False):
     if save:
         if path is None:
             path = os.path.join(os.path.dirname(os.path.realpath(__file__)), \
-                                'rosalind_ini5_1_output.txt')
+                                f'{filename}.{ext}')
         elif os.path.isdir(path):
-            path = os.path.join(path, 'rosalind_ini5_1_output.txt')
+            path = os.path.join(path, f'{filename}.{ext}')
         with open(path,  'w') as file:
             file.writelines(result)
 

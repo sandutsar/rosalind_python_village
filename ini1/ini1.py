@@ -1,15 +1,15 @@
 import os, this
 
 
-def ini1(path=None, save=False):
+def ini1(save=False, path=None, filename='rosalind_ini1_1_output', ext='txt'):
     result = "".join([this.d.get(c, c) for c in this.s][34:])
 
     if save:
         if path is None:
             path = os.path.join(os.path.dirname(os.path.realpath(__file__)), \
-                                'rosalind_ini1_1_output.txt')
+                                f'{filename}.{ext}')
         elif os.path.isdir(path):
-            path = os.path.join(path, 'rosalind_ini1_1_output.txt')
+            path = os.path.join(path, f'{filename}.{ext}')
         with open(path, 'w') as file:
             file.write(result)
 

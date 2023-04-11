@@ -4,7 +4,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), \
 from exceptions import IterableLengthError
 
 
-def ini6(s, path=None, save=False):
+def ini6(s, save=False, path=None, filename='rosalind_ini6_1_output', ext='txt'):
     result = {}
 
     # assert isinstance(s, str), f'Error: type(s) = {type(s).__name__} must be str!'
@@ -25,9 +25,9 @@ def ini6(s, path=None, save=False):
     if save:
         if path is None:
             path = os.path.join(os.path.dirname(os.path.realpath(__file__)), \
-                                'rosalind_ini6_1_output.txt')
+                                f'{filename}.{ext}')
         elif os.path.isdir(path):
-            path = os.path.join(path, 'rosalind_ini6_1_output.txt')
+            path = os.path.join(path, f'{filename}.{ext}')
         with open(path,  'w') as file:
             for key, value in result.items():
                 file.write(f'{key} {value}\n')

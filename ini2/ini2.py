@@ -4,7 +4,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), \
 from exceptions import NumberValueError
 
 
-def ini2(a, b, path=None, save=False):
+def ini2(a, b, save=False, path=None, filename='rosalind_ini2_1_output', ext='txt'):
     # assert isinstance(a, int), f'Error: type(a) = {type(a).__name__} must be int!'
     # assert isinstance(b, int), f'Error: type(b) = {type(b).__name__} must be int!'
 
@@ -38,9 +38,9 @@ def ini2(a, b, path=None, save=False):
     if save:
         if path is None:
             path = os.path.join(os.path.dirname(os.path.realpath(__file__)), \
-                                'rosalind_ini2_1_output.txt')
+                                f'{filename}.{ext}')
         elif os.path.isdir(path):
-            path = os.path.join(path, 'rosalind_ini2_1_output.txt')
+            path = os.path.join(path, f'{filename}.{ext}')
         with open(path, 'w') as file:
             file.write(str(result))
 
