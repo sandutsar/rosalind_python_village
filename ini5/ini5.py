@@ -50,4 +50,6 @@ if __name__ == '__main__':
 
     print(lines)  
     
+    # print(help(ini1))
+    # print(ini1.__doc__)
     print(*ini5(lines, save=True))

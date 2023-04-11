@@ -60,4 +60,6 @@ if __name__ == '__main__':
 
     print(s)
     
+    # print(help(ini1))
+    # print(ini1.__doc__)
     print(ini6(s, save=True))

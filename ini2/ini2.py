@@ -78,5 +78,5 @@ if __name__ == '__main__':
     print(a, b)
     
     # print(help(ini2))
-    print(ini2.__doc__)
-    # print(ini2(a, b, save=True))
+    # print(ini2.__doc__)
+    print(ini2(a, b, save=True))

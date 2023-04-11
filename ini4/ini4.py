@@ -82,4 +82,6 @@ if __name__ == '__main__':
 
     print(a, b)
     
+    # print(help(ini1))
+    # print(ini1.__doc__)
     print(ini4(a, b, save=True))
