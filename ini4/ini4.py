@@ -21,13 +21,17 @@ def ini4(a, b, path=None, save=False):
         raise TypeError(f'Error: type(b) = {type(b).__name__} must be int!')
 
     if a <= 0:
+        # raise ValueError(f'Error: a = {a} must be > 0!')
         raise NumberValueError(num=a, sign='>', value=0)
     if b <= 0:
+        # raise ValueError(f'Error: b = {b} must be > 0!')
         raise NumberValueError(num=b, sign='>', value=0)
     
     if a >= 1e4:
+        # raise OverflowError(f'Error: a = {a} must be < 10000!')
         raise NumberValueError(num=a, sign='<', value=int(1e4))
     if b >= 1e4:
+        # raise OverflowError(f'Error: b = {b} must be < 10000!')
         raise NumberValueError(num=b, sign='<', value=int(1e4))
     
     assert a < b, f'Error: a = {a} must be < b = {b}!'
@@ -50,7 +54,11 @@ def ini4(a, b, path=None, save=False):
 
 if __name__ == '__main__':
     if len(sys.argv) == 3:
-        a, b = [int(x) for x in sys.argv[1:]]
+        try:
+            a, b = list(map(int, sys.argv[1:]))
+        except ValueError as e:
+            print(f'Error: {e}!')
+            sys.exit(f'Usage: {sys.argv[0]} <a(int)> <b(int)>')
     else:
         with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), \
                             'rosalind_ini4_1_dataset.txt'), 'r') as file:

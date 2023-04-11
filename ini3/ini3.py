@@ -27,6 +27,11 @@ def ini3(s, a, b, c, d, path=None, save=False):
     if not isinstance(d, int):
         raise TypeError(f'Error: type(d) = {type(d).__name__} must be int!')
     
+    if a > b:
+        raise ValueError(f'Error: a = {a} must be < b = {b}')
+    if c > d:
+        raise ValueError(f'Error: c = {c} must be < d = {d}')
+    
     result = (s[a:b+1], s[c:d+1])
 
     if save:
@@ -43,8 +48,12 @@ def ini3(s, a, b, c, d, path=None, save=False):
 
 if __name__ == '__main__':
     if len(sys.argv) == 6:
-        s = sys.argv[1]
-        a, b, c, d = [int(x) for x in sys.argv[2:]]
+        try:
+            s = sys.argv[1]
+            a, b, c, d = list(map(int, sys.argv[2:]))
+        except ValueError as e:
+            print(f'Error: {e}!')
+            sys.exit(f'Usage: {sys.argv[0]} <s(str)> <a(int)> <b(int)> <c(int)> <d(int)>')
     else:
         with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), \
                             'rosalind_ini3_1_dataset.txt'), 'r') as file:

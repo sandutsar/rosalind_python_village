@@ -4,7 +4,7 @@ SIGNS = ('<', '>', '<=', '>=', '=')
 class InvalidSignError(Exception):
     def __init__(self, sign, message=None):
         if message is None:
-            message = f'Your sign = {sign} must be one of {SIGNS}!'
+            message = f'Error: Your sign = {sign} must be one of {SIGNS}!'
         super().__init__(message)
 
 
