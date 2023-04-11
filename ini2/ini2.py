@@ -44,9 +44,12 @@ def ini2(a, b, path=None, save=False):
 
 
 if __name__ == '__main__':
-    with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), \
-                           'rosalind_ini2_1_dataset.txt'), 'r') as file:
-        a, b = list(map(int, file.readline().split()))
+    if len(sys.argv) == 3:
+        a, b = [int(x) for x in sys.argv[1:]]
+    else:
+        with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), \
+                            'rosalind_ini2_1_dataset.txt'), 'r') as file:
+            a, b = list(map(int, file.readline().split()))
 
     print(a, b)
     

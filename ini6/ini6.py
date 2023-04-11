@@ -36,9 +36,12 @@ def ini6(s, path=None, save=False):
 
 
 if __name__ == '__main__':
-    with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), \
-                           'rosalind_ini6_1_dataset.txt'), 'r') as file:
-        s = file.readline()
+    if len(sys.argv) == 2:
+        s = sys.argv[1]
+    else:
+        with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), \
+                            'rosalind_ini6_1_dataset.txt'), 'r') as file:
+            s = file.readline()
 
     print(s)
     

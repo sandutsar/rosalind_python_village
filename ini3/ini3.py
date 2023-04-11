@@ -42,10 +42,14 @@ def ini3(s, a, b, c, d, path=None, save=False):
 
 
 if __name__ == '__main__':
-    with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), \
-                           'rosalind_ini3_1_dataset.txt'), 'r') as file:
-        s = file.readline()
-        a, b, c, d = list(map(int, file.readline().split()))
+    if len(sys.argv) == 6:
+        s = sys.argv[1]
+        a, b, c, d = [int(x) for x in sys.argv[2:]]
+    else:
+        with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), \
+                            'rosalind_ini3_1_dataset.txt'), 'r') as file:
+            s = file.readline()
+            a, b, c, d = list(map(int, file.readline().split()))
 
     print(s)
     print(a, b, c, d)
