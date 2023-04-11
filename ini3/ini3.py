@@ -5,6 +5,25 @@ from exceptions import IterableLengthError
 
 
 def ini3(s, a, b, c, d, save=False, path=None, filename='rosalind_ini3_1_output', ext='txt'):
+    '''
+    Returns tuple of 2 slices of a string from indices a through b and c through d (with space in between), inclusively.
+
+            Parameters:
+                    s (str): An input string
+                    a (int): An integer representing string index
+                    b (int): An integer representing string index
+                    c (int): An integer representing string index
+                    d (int): An integer representing string index
+
+                    save (bool): Boolean if you want to save result in a file
+                    path (str): Path to either dir or file you want to save
+                    filename (str): File name you want to save
+                    ext (str): File extension you want to save
+
+            Returns:
+                    string_slice (tuple): Tuple containig 2 string slices
+    '''
+
     # assert isinstance(s, str), f'Error: type(s) = {type(s).__name__} must be str!'
     # assert len(s) <= 2e2, f'Error: len(s) = {len(s)} must be <= 200!'
 
@@ -32,7 +51,7 @@ def ini3(s, a, b, c, d, save=False, path=None, filename='rosalind_ini3_1_output'
     if c > d:
         raise ValueError(f'Error: c = {c} must be < d = {d}')
     
-    result = (s[a:b+1], s[c:d+1])
+    string_slice = (s[a:b+1], s[c:d+1])
 
     if save:
         if path is None:
@@ -41,9 +60,9 @@ def ini3(s, a, b, c, d, save=False, path=None, filename='rosalind_ini3_1_output'
         elif os.path.isdir(path):
             path = os.path.join(path, f'{filename}.{ext}')
         with open(path, 'w') as file:
-            file.write(' '.join(result))
+            file.write(' '.join(string_slice))
 
-    return result
+    return string_slice
 
 
 if __name__ == '__main__':

@@ -5,6 +5,22 @@ from exceptions import NumberValueError
 
 
 def ini2(a, b, save=False, path=None, filename='rosalind_ini2_1_output', ext='txt'):
+    '''
+    Returns the integer corresponding to the square of the hypotenuse of the right triangle whose legs have lengths a and b.
+
+            Parameters:
+                    a (int): A leg of the right triangle
+                    b (int): Another leg of the right triangle
+
+                    save (bool): Boolean if you want to save result in a file
+                    path (str): Path to either dir or file you want to save
+                    filename (str): File name you want to save
+                    ext (str): File extension you want to save
+
+            Returns:
+                    hypotenuse_squared (int): The square of the hypotenuse
+    '''
+
     # assert isinstance(a, int), f'Error: type(a) = {type(a).__name__} must be int!'
     # assert isinstance(b, int), f'Error: type(b) = {type(b).__name__} must be int!'
 
@@ -33,7 +49,7 @@ def ini2(a, b, save=False, path=None, filename='rosalind_ini2_1_output', ext='tx
         # raise OverflowError(f'Error: b = {b} must be < 1000!')
         raise NumberValueError(num=b, sign='<', value=int(1e3))
     
-    result = a*a + b*b
+    hypotenuse_squared = a*a + b*b
 
     if save:
         if path is None:
@@ -42,9 +58,9 @@ def ini2(a, b, save=False, path=None, filename='rosalind_ini2_1_output', ext='tx
         elif os.path.isdir(path):
             path = os.path.join(path, f'{filename}.{ext}')
         with open(path, 'w') as file:
-            file.write(str(result))
+            file.write(str(hypotenuse_squared))
 
-    return result
+    return hypotenuse_squared
 
 
 if __name__ == '__main__':
@@ -61,4 +77,6 @@ if __name__ == '__main__':
 
     print(a, b)
     
-    print(ini2(a, b, save=True))
+    # print(help(ini2))
+    print(ini2.__doc__)
+    # print(ini2(a, b, save=True))

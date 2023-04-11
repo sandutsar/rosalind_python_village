@@ -5,7 +5,22 @@ from exceptions import IterableLengthError
 
 
 def ini5(lines, save=False, path=None, filename='rosalind_ini5_1_output', ext='txt'):
-    result = []
+    '''
+    Returns a list containing all the even-numbered lines from the original list.
+
+            Parameters:
+                    lines (list): An input list of lines
+
+                    save (bool): Boolean if you want to save result in a file
+                    path (str): Path to either dir or file you want to save
+                    filename (str): File name you want to save
+                    ext (str): File extension you want to save
+
+            Returns:
+                    even_lines (list): List of even-numbered lines
+    '''
+
+    even_lines = []
 
     # assert len(lines) <= 1e3, f'Error: len(lines) = {len(lines)} must be <= 1000!'
 
@@ -14,7 +29,7 @@ def ini5(lines, save=False, path=None, filename='rosalind_ini5_1_output', ext='t
 
     for i in range(len(lines)):
         if i % 2 != 0:
-            result += [lines[i]]
+            even_lines += [lines[i]]
 
     if save:
         if path is None:
@@ -23,9 +38,9 @@ def ini5(lines, save=False, path=None, filename='rosalind_ini5_1_output', ext='t
         elif os.path.isdir(path):
             path = os.path.join(path, f'{filename}.{ext}')
         with open(path,  'w') as file:
-            file.writelines(result)
+            file.writelines(even_lines)
 
-    return result
+    return even_lines
 
 
 if __name__ == '__main__':

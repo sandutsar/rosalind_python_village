@@ -4,7 +4,23 @@ sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), \
 from exceptions import NumberValueError
 
 def ini4(a, b, save=False, path=None, filename='rosalind_ini4_1_output', ext='txt'):
-    result = 0
+    '''
+    Returns the sum of all odd integers from a through b, inclusively.
+
+            Parameters:
+                    a (int): Low limit of integers range
+                    b (int): High limit of integers range
+
+                    save (bool): Boolean if you want to save result in a file
+                    path (str): Path to either dir or file you want to save
+                    filename (str): File name you want to save
+                    ext (str): File extension you want to save
+
+            Returns:
+                    odd_sum (int): Odd integers sum
+    '''
+
+    odd_sum = 0
 
     # assert isinstance(a, int), f'Error: type(a) = {type(a).__name__} must be int!'
     # assert isinstance(b, int), f'Error: type(b) = {type(b).__name__} must be int!'
@@ -38,7 +54,7 @@ def ini4(a, b, save=False, path=None, filename='rosalind_ini4_1_output', ext='tx
 
     for num in range(a, b + 1):
         if num % 2 != 0:
-            result += num
+            odd_sum += num
 
     if save:
         if path is None:
@@ -47,9 +63,9 @@ def ini4(a, b, save=False, path=None, filename='rosalind_ini4_1_output', ext='tx
         elif os.path.isdir(path):
             path = os.path.join(path, f'{filename}.{ext}')
         with open(path, 'w') as file:
-            file.write(str(result))
+            file.write(str(odd_sum))
 
-    return result
+    return odd_sum
 
 
 if __name__ == '__main__':
