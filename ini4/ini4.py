@@ -52,9 +52,7 @@ def ini4(a, b, save=False, path=None, filename='rosalind_ini4_1_output', ext='tx
     
     assert a < b, f'Error: a = {a} must be < b = {b}!'
 
-    for num in range(a, b + 1):
-        if num % 2 != 0:
-            odd_sum += num
+    odd_sum = sum([num if num % 2 != 0 else 0 for num in range(a, b + 1)])
 
     if save:
         if path is None:
